@@ -1,0 +1,16 @@
+<div class="container">
+  <button mat-raised-button color="primary" routerLink="/articles-list">
+    Powrót
+  </button>
+
+  <div class="languages-container">
+    <div *ngFor="let lang of languages">
+      <button (click)="changeLanguage(lang.code)" class="lang">
+        {{ lang.name }}
+      </button>
+    </div>
+  </div>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+  <div *ngIf="article" [innerHTML]="article.html"></div>
+</div>

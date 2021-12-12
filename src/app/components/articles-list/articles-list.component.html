@@ -1,0 +1,40 @@
+<form [formGroup]="form" class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search query</mat-label>
+    <input formControlName="searchInput" matInput />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="submit()">Search</button>
+</form>
+<div
+  *ngIf="historyItems$ | async as historyItems"
+  class="history-items-container"
+>
+  <span>Ostatnie wyszukiwania</span>
+  <div *ngFor="let historyItem of historyItems">
+    <button
+      mat-raised-button
+      color="primary"
+      class="item"
+      (click)="submit(historyItem)"
+    >
+      {{ historyItem }}
+    </button>
+  </div>
+</div>
+
+<div *ngFor="let article of articles$ | async">
+  <mat-card
+    (click)="goToDetails(article.key)"
+    style="margin: 5px; padding: 5px"
+  >
+    <img *ngIf="article.thumbnail" [src]="article.thumbnail.url" />
+    <mat-card-title>
+      {{ article.title }}
+    </mat-card-title>
+    <mat-card-content>
+      {{ article.description }}
+      <div [innerHTML]="article.excerpt"></div>
+    </mat-card-content>
+  </mat-card>
+</div>
