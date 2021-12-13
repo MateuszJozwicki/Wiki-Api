@@ -7,10 +7,11 @@ import { ArticlesListComponent } from './components/articles-list/articles-list.
 const routes: Routes = [
   { path: 'articles-list', component: ArticlesListComponent },
   { path: 'article/:id', component: ArticleItemComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'articles-list' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

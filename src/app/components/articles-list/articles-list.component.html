@@ -6,28 +6,17 @@
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="submit()">Search</button>
 </form>
-<div
-  *ngIf="historyItems$ | async as historyItems"
-  class="history-items-container"
->
+<div *ngIf="historyItems$ | async as historyItems" class="history-items-container">
   <span>Ostatnie wyszukiwania</span>
   <div *ngFor="let historyItem of historyItems">
-    <button
-      mat-raised-button
-      color="primary"
-      class="item"
-      (click)="submit(historyItem)"
-    >
+    <button mat-raised-button color="primary" class="item" (click)="submit(historyItem)">
       {{ historyItem }}
     </button>
   </div>
 </div>
 
 <div *ngFor="let article of articles$ | async">
-  <mat-card
-    (click)="goToDetails(article.key)"
-    style="margin: 5px; padding: 5px"
-  >
+  <mat-card (click)="goToDetails(article.key)" class="article">
     <img *ngIf="article.thumbnail" [src]="article.thumbnail.url" />
     <mat-card-title>
       {{ article.title }}
