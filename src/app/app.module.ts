@@ -14,14 +14,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ArticleItemComponent } from './components/article-item/article-item.component';
 import { ArticlesListComponent } from './components/articles-list/articles-list.component';
-import { SearchComponent } from './components/search/search.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleItemComponent,
     ArticlesListComponent,
-    SearchComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -38,4 +38,4 @@ import { SearchComponent } from './components/search/search.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
